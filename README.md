@@ -1,1 +1,1 @@
-# CIFAR-10 Classification Using a Convolutional Neural Network
+# Image Classification Using a Convolutional Neural Network
