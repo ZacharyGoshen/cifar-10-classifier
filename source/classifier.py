@@ -2,7 +2,7 @@ import numpy as np
 import pickle
 import matplotlib.pyplot as plt
 from tensorflow.python import keras
-from tensorflow.python.keras.layers import Conv2D, Dense, Flatten, MaxPooling2D
+from tensorflow.python.keras.layers import BatchNormalization, Conv2D, Dense, Dropout, Flatten, MaxPooling2D
 from tensorflow.python.keras.models import Sequential
 
 def load_batch(file_num):
@@ -49,21 +49,32 @@ test_images, test_labels = load_batch(6)
 learning_rate = 0.03
 momentum = 0.9
 batch_size = 64
-num_epochs = 20
+num_epochs = 1
 
 # Construct the model
 model = Sequential()
 model.add(Conv2D(32, (3, 3), strides = (1, 1), padding = "same", activation = "relu", input_shape = (32, 32, 3)))
+model.add(BatchNormalization())
 model.add(Conv2D(32, (3, 3), strides = (1, 1), padding = "same", activation = "relu"))
+model.add(BatchNormalization())
 model.add(MaxPooling2D(pool_size = (2, 2), strides = (2, 2)))
+model.add(Dropout(0.1))
 model.add(Conv2D(64, (3, 3), strides = (1, 1), padding = "same", activation = "relu", input_shape = (32, 32, 3)))
+model.add(BatchNormalization())
 model.add(Conv2D(64, (3, 3), strides = (1, 1), padding = "same", activation = "relu"))
+model.add(BatchNormalization())
 model.add(MaxPooling2D(pool_size = (2, 2), strides = (2, 2)))
+model.add(Dropout(0.2))
 model.add(Conv2D(128, (3, 3), strides = (1, 1), padding = "same", activation = "relu", input_shape = (32, 32, 3)))
+model.add(BatchNormalization())
 model.add(Conv2D(128, (3, 3), strides = (1, 1), padding = "same", activation = "relu"))
+model.add(BatchNormalization())
 model.add(MaxPooling2D(pool_size = (2, 2), strides = (2, 2)))
+model.add(Dropout(0.3))
 model.add(Flatten())
 model.add(Dense(128, activation = "relu"))
+model.add(BatchNormalization())
+model.add(Dropout(0.4))
 model.add(Dense(10, activation = "softmax"))
 
 class AccuracyHistory(keras.callbacks.Callback):
@@ -84,8 +95,11 @@ model.compile(loss = keras.losses.categorical_crossentropy,
 model.fit(training_images, training_labels, batch_size = batch_size, epochs = num_epochs,
  verbose = 1, validation_data = [test_images, test_labels], callbacks = [history])
 
+# Save the weights for the model
+model.save_weights("./../model/model.h5")
+
 # Plot the accuracy over the course of training
-plt.plot(range(1,11), history.acc)
+plt.plot(range(1, num_epochs + 1), history.acc)
 plt.xlabel('Epochs')
 plt.ylabel('Accuracy')
 plt.show()
