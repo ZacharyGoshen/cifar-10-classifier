@@ -29,5 +29,5 @@ The CNN has the following structure:
   * 30% Dropout
 * Flatten -> (1 x 2048)
 * Dense Layer with ReLU and Normalization -> (1 x 128)
-* SoftMax Layer -> (1 x 10)
+* Dense Layer with SoftMax -> (1 x 10)
 
