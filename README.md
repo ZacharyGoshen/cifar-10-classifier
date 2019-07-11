@@ -1,1 +1,1 @@
-# Classifying the CIFAR-10 Data Set Using a Convolutional Neural Network
+# CIFAR-10 Classification Using a Convolutional Neural Network
