@@ -11,8 +11,20 @@ After all the convolution/pooling blocks, the output is flattened and input into
 Each convolutional layer and the first dense layer use ReLU as an activation function to inject nonlinearity. Batch normalization is performed after every convolutional layer and the first depth layer to stabilize the learning process. To avoid overfitting the training data, dropout is performed after each convolutional block and the first dense layer. The dropout proportion increases the further you go into the network using values of .1, .2, .3, and .4.
 
 The CNN has the following structure:
-* Input Layer (? x 28 x 28 x 3)
-* Convolutional Block 1 (
-  * Convolutional Layer 1.1 (32 filters)
-  * Convolutional Layer 1.2 (32 filters)
+* Input Layer -> (28 x 28 x 3)
+* Convolutional Block 1 -> (14 x 14 x 32)
+  * Convolutional Layer 1.1 with ReLU and Normalization (32 filters)
+  * Convolutional Layer 1.2 with ReLU and Normalization (32 filters)
   * Max Pooling Layer
+  * 10% Dropout
+* Convolutional Block 2 -> (7 x 7 x 64)
+  * Convolutional Layer 2.1 with ReLU and Normalization (64 filters)
+  * Convolutional Layer 2.2 with ReLU and Normalization (64 filters)
+  * Max Pooling Layer
+  * 20% Dropout
+* Convolutional Block 3 -> (4 x 4 x 128)
+  * Convolutional Layer 3.1 with ReLU and Normalization (128 filters)
+  * Convolutional Layer 3.2 with ReLU and Normalization (128 filters)
+  * Max Pooling Layer
+  * 30% Dropout
+
