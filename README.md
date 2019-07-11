@@ -33,9 +33,9 @@ The CNN has the following structure:
 
 *load_data.py* has two functions *load_training_data* and *load_test-data* that load the training and test sets from the data folder. If you download this project, the data folder will be empty. That is because I did not want to store ~160MB of data in this repository. To download the data, click the "CIFAR-10 python version" link from https://www.cs.toronto.edu/~kriz/cifar.html. Unpack the tar file and copy the contents to the data folder so that it has the following structure:
 * data
- * data_batch_1
- * data_batch_2
- * data_batch_3
- * data_batch_4
- * data_batch_5
- * test_batch
+  * data_batch_1
+  * data_batch_2
+  * data_batch_3
+  * data_batch_4
+  * data_batch_5
+  * test_batch
