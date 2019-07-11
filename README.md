@@ -27,7 +27,7 @@ The CNN has the following structure:
   * Convolutional Layer 3.2 with ReLU and Normalization (128 filters)
   * Max Pooling Layer
   * 30% Dropout
-* Flatten -> (1 * 2048)
-* Dense Layer with ReLU and Normalization -> (1 * 128)
-* SoftMax Layer -> (1 * 10)
+* Flatten -> (1 x 2048)
+* Dense Layer with ReLU and Normalization -> (1 x 128)
+* SoftMax Layer -> (1 x 10)
 
