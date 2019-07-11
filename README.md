@@ -12,6 +12,7 @@ Each convolutional layer and the first dense layer use ReLU as an activation fun
 
 The CNN has the following structure:
 * Input Layer (? x 28 x 28 x 3)
-  * Convolutional Block 1
-    * Convolutional Layer 1.1
-    * Convolutional Layer 1.2
+* Convolutional Block 1 (
+  * Convolutional Layer 1.1 (32 filters)
+  * Convolutional Layer 1.2 (32 filters)
+  * Max Pooling Layer
