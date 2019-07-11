@@ -40,4 +40,4 @@ The CNN has the following structure:
   * data_batch_5
   * test_batch
 
-*train_model.py* builds the CNN and trains it on the 50,000 train images. It then stores the model and the weights in the model folder. The hyperparameters can be tuned within the code. Each epoch takes 5-6 minutes on my MacBook with an average performance GPU. *test_model.py* loads the model data and tests it on the 10,000 test images. After just 10 epochs, it can classify the test images with ~80% accuracy. This takes my comptuer about an hour to train. I estimate that the model should reach 85% accuracy after ~100 epochs.
+*train_model.py* builds the CNN and trains it on the 50,000 train images. It then stores the model and the weights in the model folder. The hyperparameters can be tuned within the code. Each epoch takes 5-6 minutes on my MacBook with an average performance GPU. *test_model.py* loads the model data and tests it on the 10,000 test images. After just 10 epochs, it can classify the test images with ~80% accuracy. This takes my comptuer about an hour to train. I estimate that the model should reach >85% accuracy after ~100 epochs.
